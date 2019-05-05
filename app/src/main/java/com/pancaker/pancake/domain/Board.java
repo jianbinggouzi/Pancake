@@ -1,17 +1,20 @@
 package com.pancaker.pancake.domain;
 
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Property;
+
 /**
  * Created by jianbinggouzi on 19-5-5.
  */
 
 public class Board extends BaseDomain {
-
+    @Id
     private String boardId;
-
+    @Property(nameInDb = "board_name")
     private String boardName;
-
+    @Property(nameInDb = "board_desc")
     private String boardDesc;
-
+    @Property(nameInDb = "letter_num")
     private long letterNum;
 
     public void setBoardId(String boardId) {

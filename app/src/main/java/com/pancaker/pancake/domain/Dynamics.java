@@ -1,14 +1,21 @@
 package com.pancaker.pancake.domain;
 
+import java.util.Date;
 import java.util.Set;
 
 /**
  * Created by jianbinggouzi on 19-5-5.
  */
 
-public class Dynamics extends EntityBase {
+public class Dynamics {
 
-   private String dynamicsTitle;
+    private String Id;
+
+    private User user;
+
+    private Date createTime;
+
+    private String dynamicsTitle;
 
     private int views;
 
@@ -19,6 +26,30 @@ public class Dynamics extends EntityBase {
     private Post mainPost;
 
     private int collects;
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
     public int getCollects() {
         return collects;

@@ -1,12 +1,19 @@
 package com.pancaker.pancake.domain;
 
+import java.util.Date;
 import java.util.Set;
 
 /**
  * Created by jianbinggouzi on 19-5-5.
  */
 
-public class Letter extends EntityBase {
+public class Letter {
+
+    private String Id;
+
+    private User user;
+
+    private Date createTime;
 
     private String boardId;
 
@@ -29,6 +36,30 @@ public class Letter extends EntityBase {
     private Set<Post> comments;
 
     private int letterType;
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
     public int getThanks() {
         return thanks;

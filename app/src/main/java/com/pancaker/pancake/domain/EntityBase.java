@@ -6,6 +6,7 @@ import java.util.Date;
  * Created by jianbinggouzi on 19-5-5.
  */
 
+
 public class EntityBase extends BaseDomain {
 
     private String Id;

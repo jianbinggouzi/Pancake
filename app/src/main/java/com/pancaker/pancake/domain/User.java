@@ -1,11 +1,18 @@
 package com.pancaker.pancake.domain;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Property;
+
 import java.util.Date;
+
+import static android.R.attr.id;
 
 /**
  * Created by jianbinggouzi on 19-5-5.
  */
 
+@Entity
 public class User extends BaseDomain {
 
     public static final int USER_LOCK = 1;
@@ -17,23 +24,23 @@ public class User extends BaseDomain {
     public static final int USER_VIP = 2;
 
     public static final int USER_ADMIN = 3;
-
+    @Id
     private String userId;
-
+    @Property(nameInDb = "user_name")
     private String userName;
-
+    @Property(nameInDb = "password")
     private String password;
-
+    @Property(nameInDb = "user_phone")
     private String userPhone;
-
+    @Property(nameInDb = "userType")
     private long userType;
-
+    @Property(nameInDb = "locked")
     private long locked;
-
+    @Property(nameInDb = "credit")
     private long credit;
-
+    @Property(nameInDb = "last_visit")
     private Date lastVisit;
-
+    @Property(nameInDb = "last_ip")
     private String lastIp;
 
     public void setUserId(String userId) {
