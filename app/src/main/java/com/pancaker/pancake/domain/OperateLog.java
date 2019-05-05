@@ -1,28 +1,72 @@
 package com.pancaker.pancake.domain;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Property;
+import org.greenrobot.greendao.annotation.Transient;
+
 import java.util.Date;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Created by jianbinggouzi on 19-5-5.
  */
-
+@Entity
 public class OperateLog extends BaseDomain {
-
+    @Id
     private String operateLogId;
-
+    @Property(nameInDb = "entity_id")
     private String entityId;
-
+    @Transient
     private User sender;
-
+    @Property(nameInDb = "sender_id")
+    private String senderId;
+    @Transient
     private User receiver;
-
+    @Property(nameInDb = "receiver_id")
+    private String receiverId;
+    @Property(nameInDb = "operate_type")
     private int operateType;
-
+    @Property(nameInDb = "time")
     private Date time;
-
+    @Property(nameInDb = "entity_type")
     private int entityType;
-
+    @Property(nameInDb = "text")
     private String text;
+
+    @Generated(hash = 1437220499)
+    public OperateLog(String operateLogId, String entityId, String senderId,
+            String receiverId, int operateType, Date time, int entityType,
+            String text) {
+        this.operateLogId = operateLogId;
+        this.entityId = entityId;
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.operateType = operateType;
+        this.time = time;
+        this.entityType = entityType;
+        this.text = text;
+    }
+
+    @Generated(hash = 712536711)
+    public OperateLog() {
+    }
+
+    public String getSenderId(){
+        return senderId;
+    }
+
+    public void setSenderId(String senderId){
+        this.senderId = senderId;
+    }
+
+    public String getReceiverId(){
+        return receiverId;
+    }
+
+    public void setReceiverId(String receiverId){
+        this.receiverId = receiverId;
+    }
 
     public String getText() {
         return text;

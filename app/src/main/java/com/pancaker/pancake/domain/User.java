@@ -7,6 +7,7 @@ import org.greenrobot.greendao.annotation.Property;
 import java.util.Date;
 
 import static android.R.attr.id;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Created by jianbinggouzi on 19-5-5.
@@ -42,6 +43,24 @@ public class User extends BaseDomain {
     private Date lastVisit;
     @Property(nameInDb = "last_ip")
     private String lastIp;
+
+    @Generated(hash = 810231845)
+    public User(String userId, String userName, String password, String userPhone,
+            long userType, long locked, long credit, Date lastVisit, String lastIp) {
+        this.userId = userId;
+        this.userName = userName;
+        this.password = password;
+        this.userPhone = userPhone;
+        this.userType = userType;
+        this.locked = locked;
+        this.credit = credit;
+        this.lastVisit = lastVisit;
+        this.lastIp = lastIp;
+    }
+
+    @Generated(hash = 586692638)
+    public User() {
+    }
 
     public void setUserId(String userId) {
         this.userId = userId;

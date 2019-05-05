@@ -1,41 +1,91 @@
 package com.pancaker.pancake.domain;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Property;
+import org.greenrobot.greendao.annotation.Transient;
+
 import java.util.Date;
 import java.util.Set;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Created by jianbinggouzi on 19-5-5.
  */
-
+@Entity
 public class Letter {
-
+    @Id
     private String Id;
-
+    @Transient
     private User user;
-
+    @Property(nameInDb = "user_id")
+    private String userId;
+    @Property(nameInDb = "create_time")
     private Date createTime;
-
+    @Property(nameInDb = "board_id")
     private String boardId;
-
+    @Property(nameInDb = "title")
     private String letterTitle;
-
+    @Property(nameInDb = "views")
     private int views;
-
+    @Property(nameInDb = "replies")
     private int letterReplies;
-
+    @Property(nameInDb = "shares")
     private int letterShares;
-
+    @Property(nameInDb = "digests")
     private int digests;
-
+    @Property(nameInDb = "collects")
     private int collects;
-
+    @Transient
     private Post mainPost;
-
+    @Property(nameInDb = "main_post_id")
+    private String mainPostId;
+    @Property(nameInDb = "thanks")
     private int thanks;
-
+    @Transient
     private Set<Post> comments;
-
+    @Property(nameInDb = "type")
     private int letterType;
+
+    @Generated(hash = 468538437)
+    public Letter(String Id, String userId, Date createTime, String boardId,
+            String letterTitle, int views, int letterReplies, int letterShares,
+            int digests, int collects, String mainPostId, int thanks,
+            int letterType) {
+        this.Id = Id;
+        this.userId = userId;
+        this.createTime = createTime;
+        this.boardId = boardId;
+        this.letterTitle = letterTitle;
+        this.views = views;
+        this.letterReplies = letterReplies;
+        this.letterShares = letterShares;
+        this.digests = digests;
+        this.collects = collects;
+        this.mainPostId = mainPostId;
+        this.thanks = thanks;
+        this.letterType = letterType;
+    }
+
+    @Generated(hash = 174375807)
+    public Letter() {
+    }
+
+    public String getMainPostId(){
+        return mainPostId;
+    }
+
+    public void setMainPostId(String mainPostId){
+        this.mainPostId = mainPostId;
+    }
+
+    public String getUserId(){
+        return userId;
+    }
+
+    public void setUserId(String userId){
+        this.userId = userId;
+    }
 
     public String getId() {
         return Id;
@@ -147,6 +197,10 @@ public class Letter {
 
     public Set<Post> getComments() {
         return comments;
+    }
+
+    public int getLetterType() {
+        return this.letterType;
     }
 
 }

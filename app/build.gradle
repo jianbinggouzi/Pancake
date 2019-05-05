@@ -25,14 +25,14 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.0'
+
     }
 }
 apply plugin: 'org.greenrobot.greendao'
 
 greendao {
     //数据库的schema版本，也可以理解为数据库版本号
-    schemaVersion 1
+    schemaVersion 4
     //设置DaoMaster、DaoSession、Dao包名，也就是要放置这些类的包的全路径。
     daoPackage 'com.pancaker.pancake.dao'
     //设置DaoMaster、DaoSession、Dao目录
