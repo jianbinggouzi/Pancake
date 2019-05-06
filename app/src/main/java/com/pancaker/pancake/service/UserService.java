@@ -19,7 +19,5 @@ public class UserService extends BaseService {
 
     }
 
-    public void addUser(){
-        this.exeOnThread(userDao.getClass(),null,null,null,null);
-    }
+
 }
