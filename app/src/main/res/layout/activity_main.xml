@@ -6,13 +6,79 @@
     android:layout_height="match_parent"
     tools:context="com.pancaker.pancake.context.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_bar">
+            <TextView
+                android:id="@+id/shoujian"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:background="@color/CBlue1"
+                android:text="收件箱"
+                android:textColor="#fff"
+                android:textSize="30dp"/>
+
+            <TextView
+                android:id="@+id/gongneng"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:background="@color/CBlue1"
+                android:text="杂货"
+                android:textColor="#fff"
+                android:textSize="30dp"
+                android:layout_alignParentRight="true"/>
+
+
+
+        </RelativeLayout>
+        <!--底部导航-->
+        <LinearLayout
+            android:id="@+id/bottom_bar"
+            android:clipChildren="false"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/CBlue1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_home1" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_shop1" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="-8dp"
+                android:src="@drawable/ic_plume" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_message" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_friend1" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
