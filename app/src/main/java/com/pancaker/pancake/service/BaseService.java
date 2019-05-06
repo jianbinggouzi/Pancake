@@ -1,5 +1,7 @@
 package com.pancaker.pancake.service;
 
+import com.pancaker.pancake.custom.ThreadPool;
+
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -82,7 +84,7 @@ public class BaseService {
 
             }
         };
-        new Thread(runnable).start();
+        ThreadPool.put(runnable);
 
     }
 
