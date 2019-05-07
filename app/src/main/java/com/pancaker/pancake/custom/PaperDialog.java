@@ -72,7 +72,7 @@ public class PaperDialog extends Dialog {
         this.mCheckButton.setTextSize(size);
     }
     public void setCheckOnClickListener(String check, View.OnClickListener onClickListener){
-
+        
 
 
 
