@@ -7,13 +7,16 @@
     tools:context="com.pancaker.pancake.context.MainActivity">
 
     <RelativeLayout
+        android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipChildren="false">
+        android:clipChildren="false"
+        android:background="#ffffff">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/bottom_bar">
+
             <TextView
                 android:id="@+id/receive_box"
                 android:layout_width="150dp"
