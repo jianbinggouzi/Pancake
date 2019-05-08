@@ -39,6 +39,9 @@ public class PaperDialog extends Dialog {
         LayoutInflater inflater = LayoutInflater.from(mContext);
         //从xml转换为View
         View layoutView = inflater.inflate(R.layout.paperdialog, null);
+
+
+
         //PaperDialog将layoutView作为其View
         addContentView(layoutView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));//View的大小
         //标题
@@ -52,6 +55,12 @@ public class PaperDialog extends Dialog {
         //确认按钮
 
     }
+
+    @Override
+    public void dismiss() {
+        super.dismiss();
+    }
+
     public void setRemark(String arg){this.remark.setText(arg);}
     public void setTitle(String title){
         this.mTitle.setText(title);
@@ -72,8 +81,6 @@ public class PaperDialog extends Dialog {
         this.mCheckButton.setTextSize(size);
     }
     public void setCheckOnClickListener(String check, View.OnClickListener onClickListener){
-        
-
 
 
     }
