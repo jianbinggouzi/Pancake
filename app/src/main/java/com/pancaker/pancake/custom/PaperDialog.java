@@ -61,15 +61,17 @@ public class PaperDialog extends Dialog {
         super.dismiss();
     }
 
-    public void setRemark(String arg){this.remark.setText(arg);}
+    public void setRemark(String arg){
+        //this.remark.setText(arg);
+    }
     public void setTitle(String title){
-        this.mTitle.setText(title);
+
     }
     public void setTitleSize(float size){
         this.mTitle.setTextSize(size);
     }
     public void setMessage(CharSequence message) {
-        mContent.setText(message);
+        //mContent.setText(message);
     }
     public void setMessageSize(float size){
         this.mContent.setTextSize(size);
