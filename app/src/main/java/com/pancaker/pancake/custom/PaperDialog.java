@@ -43,7 +43,7 @@ public class PaperDialog extends Dialog {
 
 
         //PaperDialog将layoutView作为其View
-        addContentView(layoutView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));//View的大小
+        addContentView(layoutView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));//View的大小
         //标题
         //mTitle = (TextView) layoutView.findViewById(R.id.paper_dialog_titleText);
         //内容

@@ -6,7 +6,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView receiveBox;
     //杂货箱
     private TextView goodsBox;
-    //弹出面板
-    private PaperDialog paperDialog;
+
 
     private Bitmap background;
 
@@ -67,58 +68,44 @@ public class MainActivity extends AppCompatActivity {
     private void initActivity(){
         receiveBox = (TextView) findViewById(R.id.receive_box);
         goodsBox = (TextView) findViewById(R.id.good_box);
-        paperDialog = new PaperDialog(MainActivity.this,R.style.AlertDialogCustom){
-            @Override
-            public void dismiss() {
-                super.dismiss();
-                controllViesShow(true);
-            }
-        };
         rootView = (View) findViewById(R.id.main_container);
         bottomBar = (LinearLayout) findViewById(R.id.bottom_bar);
-        paperDialog.createDialog();
     }
 
     private void initClickListener(){
         receiveBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("receiveBox","receiveBox-message","receiveBox-remark");
+            showMiniView();
             }
         });
         goodsBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("goodsBox","goodsBox-message","messageBox-remark");
+            showMiniView();
             }
         });
     }
 
-    private void showDialog(String title,String message,String remark){
+    private void showMiniView(){
         rootView.setBackground(new BitmapDrawable(getResources(),background));
         controllViesShow(false);
-        paperDialog.setTitle(title);
-        paperDialog.setMessage(message);
-        paperDialog.setRemark(remark);
-        paperDialog.setCheckOnClickListener("确认",new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                paperDialog.dismiss();
-            }
-        });
-        paperDialog.show();
+        LayoutInflater inflater = LayoutInflater.from(this);
+        //从xml转换为View
+        View layoutView = inflater.inflate(R.layout.custom_mini_view, null);
+        addContentView(layoutView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+
     }
 
     private void controllViesShow(boolean isSHow){
         if(isSHow){
-            receiveBox.setVisibility(View.VISIBLE);
-            goodsBox.setVisibility(View.VISIBLE);
-            bottomBar.setVisibility(View.VISIBLE);
-            rootView.setBackgroundColor(Color.WHITE);
+
+            //rootView.setBackgroundColor(Color.WHITE);
         }else{
             receiveBox.setVisibility(View.GONE);
             goodsBox.setVisibility(View.GONE);
             bottomBar.setVisibility(View.GONE);
+
         }
     }
 }
