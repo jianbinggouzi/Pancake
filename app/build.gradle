@@ -53,6 +53,6 @@ dependencies {
     compile 'net.zetetic:android-database-sqlcipher:3.5.7@aar'
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'com.squareup.okhttp3:okhttp:3.11.0'
-
+    implementation 'com.github.DingMouRen:LayoutManagerGroup:1e6f4f96eb'
     testCompile 'junit:junit:4.12'
 }
