@@ -45,12 +45,12 @@ public class PaperDialog extends Dialog {
         //PaperDialog将layoutView作为其View
         addContentView(layoutView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));//View的大小
         //标题
-        mTitle = (TextView) layoutView.findViewById(R.id.paper_dialog_titleText);
+        //mTitle = (TextView) layoutView.findViewById(R.id.paper_dialog_titleText);
         //内容
-        mContent = (TextView) layoutView.findViewById(R.id.paper_dialog_contentText);
+        //mContent = (TextView) layoutView.findViewById(R.id.paper_dialog_contentText);
 
-        remark = (TextView)layoutView.findViewById(R.id.dialog_remark);
-        TextView ready = (TextView)layoutView.findViewById(R.id.ready);
+        //remark = (TextView)layoutView.findViewById(R.id.dialog_remark);
+       // TextView ready = (TextView)layoutView.findViewById(R.id.ready);
 
         //确认按钮
 

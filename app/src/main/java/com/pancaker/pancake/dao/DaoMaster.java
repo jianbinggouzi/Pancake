@@ -24,9 +24,9 @@ public class DaoMaster extends AbstractDaoMaster {
         BoardDao.createTable(db, ifNotExists);
         DynamicsDao.createTable(db, ifNotExists);
         LetterDao.createTable(db, ifNotExists);
-        UserDao.createTable(db, ifNotExists);
         OperateLogDao.createTable(db, ifNotExists);
         PostDao.createTable(db, ifNotExists);
+        UserDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
@@ -34,9 +34,9 @@ public class DaoMaster extends AbstractDaoMaster {
         BoardDao.dropTable(db, ifExists);
         DynamicsDao.dropTable(db, ifExists);
         LetterDao.dropTable(db, ifExists);
-        UserDao.dropTable(db, ifExists);
         OperateLogDao.dropTable(db, ifExists);
         PostDao.dropTable(db, ifExists);
+        UserDao.dropTable(db, ifExists);
     }
 
     /**
@@ -58,9 +58,9 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(BoardDao.class);
         registerDaoClass(DynamicsDao.class);
         registerDaoClass(LetterDao.class);
-        registerDaoClass(UserDao.class);
         registerDaoClass(OperateLogDao.class);
         registerDaoClass(PostDao.class);
+        registerDaoClass(UserDao.class);
     }
 
     public DaoSession newSession() {
