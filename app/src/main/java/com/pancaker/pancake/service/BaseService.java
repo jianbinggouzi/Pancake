@@ -70,7 +70,7 @@ public class BaseService {
         });
     }
 
-    public void exeOnThread(final Class clazz,final String methodName,final Class[] shape_params,final Class[] real_params,final DataCaller dataCaller) throws Exception{
+    public void exeOnThread(final DataCaller dataCaller,final Class clazz,final String methodName,final Class[] shape_params,final Object[] real_params) throws Exception{
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
