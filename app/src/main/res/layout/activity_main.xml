@@ -7,41 +7,14 @@
     tools:context="com.pancaker.pancake.context.MainActivity">
 
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipChildren="false"
         android:background="#ffffff"
         >
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/bottom_bar">
 
-            <TextView
-                android:id="@+id/receive_box"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:background="@color/CBlue1"
-                android:text="收件箱"
-                android:textColor="#fff"
-                android:textSize="30dp"
-                />
-
-            <TextView
-                android:id="@+id/good_box"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:background="@color/CBlue1"
-                android:text="杂货"
-                android:textColor="#fff"
-                android:textSize="30dp"
-                android:layout_alignParentRight="true"/>
-
-
-
-        </RelativeLayout>
         <!--底部导航-->
         <LinearLayout
             android:id="@+id/bottom_bar"
@@ -50,7 +23,8 @@
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:background="@color/CBlue1"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_gravity="bottom">
 
             <ImageView
                 android:layout_weight="1"
@@ -85,6 +59,6 @@
 
 
         </LinearLayout>
-    </RelativeLayout>
+    </FrameLayout>
 
 </android.support.percent.PercentFrameLayout>

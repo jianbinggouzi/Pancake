@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_bar">
+
+        <TextView
+            android:id="@+id/receive_box"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:background="@color/CBlue1"
+            android:text="收件箱"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            />
+
+        <TextView
+            android:id="@+id/good_box"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:background="@color/CBlue1"
+            android:text="杂货"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:layout_alignParentRight="true"/>
+
+
+
+    </RelativeLayout>
+</LinearLayout>

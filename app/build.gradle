@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.3"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.pancaker.pancake"
         minSdkVersion 21
@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -53,6 +54,7 @@ dependencies {
     compile 'net.zetetic:android-database-sqlcipher:3.5.7@aar'
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'com.squareup.okhttp3:okhttp:3.11.0'
-    implementation 'com.github.DingMouRen:LayoutManagerGroup:1e6f4f96eb'
+    //compile 'com.github.DingMouRen:LayoutManagerGroup:94b38b2694'
+    compile 'com.lorentzos.swipecards:library:1.0.9'
     testCompile 'junit:junit:4.12'
 }

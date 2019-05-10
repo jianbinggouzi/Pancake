@@ -3,17 +3,20 @@ package com.pancaker.pancake.context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.pancaker.pancake.R;
-import com.pancaker.pancake.custom.PaperDialog;
+import com.pancaker.pancake.custom.HomeFragment;
+import com.pancaker.pancake.custom.LetterFragment;
+import com.pancaker.pancake.custom.RootFragment;
 import com.pancaker.pancake.custom.ThreadPool;
 import com.pancaker.pancake.libs.FastBlur;
 import com.pancaker.pancake.libs.PictureUtil;
@@ -21,11 +24,6 @@ import com.pancaker.pancake.libs.PictureUtil;
 public class MainActivity extends AppCompatActivity {
 
     private View rootView;
-    //收件箱
-    private TextView receiveBox;
-    //杂货箱
-    private TextView goodsBox;
-
 
     private Bitmap background;
 
@@ -33,13 +31,21 @@ public class MainActivity extends AppCompatActivity {
 
     private int isInChanging = 0;
 
+    private RootFragment fragment;
+
+    //屏幕中央弹出框
+    //private View miniView;
+
+    public View getRootView(){
+        return rootView;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        replaceFragment(new HomeFragment(),false);
         initActivity();
-        initClickListener();
-
     }
 
     @Override
@@ -65,47 +71,38 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void replaceFragment(RootFragment fragment,boolean ifAddToStack){
+        this.fragment = fragment;
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.main_container,fragment);
+        if(ifAddToStack) {
+            //transaction.addToBackStack(null);
+        }
+
+        transaction.commit();
+    }
+
     private void initActivity(){
-        receiveBox = (TextView) findViewById(R.id.receive_box);
-        goodsBox = (TextView) findViewById(R.id.good_box);
         rootView = (View) findViewById(R.id.main_container);
         bottomBar = (LinearLayout) findViewById(R.id.bottom_bar);
+        //miniView = getLayoutInflater().inflate(R.layout.custom_mini_view, null);
+        //addContentView(miniView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        //miniView.setVisibility(View.GONE);
     }
 
-    private void initClickListener(){
-        receiveBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            showMiniView();
-            }
-        });
-        goodsBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            showMiniView();
-            }
-        });
-    }
-
-    private void showMiniView(){
-        rootView.setBackground(new BitmapDrawable(getResources(),background));
-        controllViesShow(false);
-        LayoutInflater inflater = LayoutInflater.from(this);
-        //从xml转换为View
-        View layoutView = inflater.inflate(R.layout.custom_mini_view, null);
-        addContentView(layoutView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-
-    }
-
-    private void controllViesShow(boolean isSHow){
-        if(isSHow){
-
-            //rootView.setBackgroundColor(Color.WHITE);
-        }else{
-            receiveBox.setVisibility(View.GONE);
-            goodsBox.setVisibility(View.GONE);
+    public void showMiniView(boolean ifShow){
+        if(ifShow){
+            //miniView.setVisibility(View.VISIBLE);
+            rootView.setBackground(new BitmapDrawable(getResources(),background));
             bottomBar.setVisibility(View.GONE);
-
+            fragment.setAllViewShow(false);
+        }else{
+            //miniView.setVisibility(View.GONE);
+            rootView.setBackgroundColor(Color.WHITE);
+            bottomBar.setVisibility(View.VISIBLE);
+            fragment.setAllViewShow(true);
         }
     }
+
 }

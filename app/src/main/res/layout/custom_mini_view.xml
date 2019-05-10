@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     >
     <LinearLayout
+        android:id="@+id/mini_view_container"
         app:layout_widthPercent="90%"
         app:layout_heightPercent="95%"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:background="#999999"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#999999"
-            android:text="123456"/>
+
+
     </LinearLayout>
 </android.support.percent.PercentFrameLayout>
