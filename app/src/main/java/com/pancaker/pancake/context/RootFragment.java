@@ -1,4 +1,4 @@
-package com.pancaker.pancake.custom;
+package com.pancaker.pancake.context;
 
 import android.support.v4.app.Fragment;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.pancaker.pancake.custom;
+package com.pancaker.pancake.context;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import com.pancaker.pancake.R;
+
 import java.util.ArrayList;
 import java.util.List;
 

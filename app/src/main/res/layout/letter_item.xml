@@ -2,17 +2,18 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center"
-    android:layout_width="250dp"
-    android:layout_height="170dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/helloText"
         android:textSize="40sp"
         android:textColor="@android:color/white"
-        android:background="#E339"
+        android:background="#00000000"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
     <View
         android:id="@+id/item_swipe_left_indicator"

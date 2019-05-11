@@ -3,23 +3,18 @@ package com.pancaker.pancake.context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.pancaker.pancake.R;
-import com.pancaker.pancake.custom.HomeFragment;
-import com.pancaker.pancake.custom.LetterFragment;
-import com.pancaker.pancake.custom.RootFragment;
 import com.pancaker.pancake.custom.ThreadPool;
 import com.pancaker.pancake.libs.FastBlur;
-import com.pancaker.pancake.libs.PictureUtil;
+import com.pancaker.pancake.libs.WindowManagerUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     private int isInChanging = 0;
 
     private RootFragment fragment;
+
+    private ImageView indexButton;
+
+    private ImageView writeLetterButton;
 
     //屏幕中央弹出框
     //private View miniView;
@@ -46,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         replaceFragment(new HomeFragment(),false);
         initActivity();
+        initClickListener();
     }
 
     @Override
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 if(isInChanging == 0){
                     isInChanging = 1;
-                    background = FastBlur.doBlur(PictureUtil.activityShot(MainActivity.this),20,true);
+                    background = FastBlur.doBlur(WindowManagerUtil.activityShot(MainActivity.this),20,true);
                     isInChanging = 0;
                 }
 
@@ -86,9 +86,27 @@ public class MainActivity extends AppCompatActivity {
     private void initActivity(){
         rootView = (View) findViewById(R.id.main_container);
         bottomBar = (LinearLayout) findViewById(R.id.bottom_bar);
+        indexButton = (ImageView) findViewById(R.id.index_button);
+        writeLetterButton = (ImageView) findViewById(R.id.write_letter_button);
         //miniView = getLayoutInflater().inflate(R.layout.custom_mini_view, null);
         //addContentView(miniView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         //miniView.setVisibility(View.GONE);
+    }
+
+    private void initClickListener(){
+        indexButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new HomeFragment(),true);
+            }
+        });
+        writeLetterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new WriteLetterFragment(),true);
+            }
+        });
+
     }
 
     public void showMiniView(boolean ifShow){
