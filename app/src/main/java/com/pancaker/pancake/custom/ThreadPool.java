@@ -13,7 +13,12 @@ public class ThreadPool {
 
     public static ExecutorService getInstance(){
         if(executorService == null)
-            executorService = Executors.newCachedThreadPool();
+            synchronized (ExecutorService.class){
+                if(executorService == null){
+                    executorService = Executors.newCachedThreadPool();
+                }
+            }
+
         return executorService;
     }
 
