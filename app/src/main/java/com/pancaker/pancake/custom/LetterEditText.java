@@ -35,8 +35,9 @@ public class LetterEditText extends AppCompatEditText {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        int windowsWidth = WindowManagerUtil.getWindowsWidthPixel(getContext());
-        int windowsHeight = WindowManagerUtil.getWindowsWidthPixel(getContext());
+        //int windowsWidth = WindowManagerUtil.getWindowsWidthPixel(getContext());
+        //int windowsHeight = WindowManagerUtil.getWindowsWidthPixel(getContext());
+        int windowsWidth = WindowManagerUtil.WIDTH_PIXELS;
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.BLACK);

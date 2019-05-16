@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -36,10 +37,13 @@ public class WindowManagerUtil {
         windowManager.getDefaultDisplay().getMetrics(outMetrics);
         int width = outMetrics.widthPixels;
         int height = outMetrics.heightPixels;
-
-        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache(), 0, statusBarHeight, width,
+        Bitmap bitmap = null;
+        try{
+            bitmap = Bitmap.createBitmap(view.getDrawingCache(), 0, statusBarHeight, width,
                 height-statusBarHeight);
-
+        }catch(Exception e){
+            Log.i("------------------","-----------------");
+        }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
 

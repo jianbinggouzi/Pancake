@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -55,8 +56,13 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 if(isInChanging == 0){
                     isInChanging = 1;
-                    background = FastBlur.doBlur(WindowManagerUtil.activityShot(MainActivity.this),20,true);
-                    isInChanging = 0;
+                    try{
+                        background = FastBlur.doBlur(WindowManagerUtil.activityShot(MainActivity.this),20,true);
+                    }catch (Exception e){
+                        Log.i("--------","----------");
+                    }finally{
+                        isInChanging = 0;
+                    }
                 }
 
             }
@@ -112,7 +118,8 @@ public class MainActivity extends AppCompatActivity {
     public void showMiniView(boolean ifShow){
         if(ifShow){
             //miniView.setVisibility(View.VISIBLE);
-            rootView.setBackground(new BitmapDrawable(getResources(),background));
+            if(background != null)
+                rootView.setBackground(new BitmapDrawable(getResources(),background));
             bottomBar.setVisibility(View.GONE);
             fragment.setAllViewShow(false);
         }else{

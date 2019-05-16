@@ -1,5 +1,8 @@
 package com.pancaker.pancake;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 /**
  * Created by jianbinggouzi on 19-5-6.
  */
@@ -11,4 +14,5 @@ public class ConfigVar {
     public static String USER_NAME = "jianbinggouzi";
 
     public static String PASSWORD = "123456";
+
 }
